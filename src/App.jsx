@@ -1,18 +1,20 @@
-import React, {useState} from "react";
-import useInput from "./hooks/useInput";
+import React, {useRef} from "react";
+import Hover from "./components/Hover";
+import useHover from "./hooks/useHover";
 
 function App() {
-   const username=useInput('')
-   const password=useInput('')
-    console.log(username)
+    const ref=useRef()
+    const isBlackHovering = useHover(ref)
+
     return (
         <div>
-            <input {...username} type="text" placeholder="Username"/>
-            <input {...password} type="password" placeholder="Password"/>
-            <h3>{username.value}</h3>
-            <h3>{password.value}</h3>
+            {/*<Input/>*/}
+            <Hover/>
+            <div ref={ref} style={{width: 300, height: 300, background: isBlackHovering ? 'blue' : 'black'}}/>
+
         </div>
-    );
+    )
+        ;
 }
 
 export default App;
