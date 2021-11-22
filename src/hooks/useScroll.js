@@ -9,6 +9,8 @@ export default function useScroll (parentRef, childRef, callback){
             rootMargin: '0px',
             threshold: 0
         }
+
+        const current=childRef.current
         observer.current = new IntersectionObserver(([target]) => {
             if (target.isIntersecting) {
                 console.log('intersecting')
@@ -16,10 +18,10 @@ export default function useScroll (parentRef, childRef, callback){
             }
         }, options)
 
-        observer.current.observe(childRef.current)
+        observer.current.observe(current)
 
         return function (){
-            observer.current.unobserve(childRef.current)
+            observer.current.unobserve(current)
         }
     }, [callback])
 }
