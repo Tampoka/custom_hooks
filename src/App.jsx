@@ -1,17 +1,15 @@
-import React, {useRef} from "react";
-import Hover from "./components/Hover";
-import useHover from "./hooks/useHover";
+import React from "react";
+import List from "./components/List";
 
 function App() {
-    const ref=useRef()
-    const isBlackHovering = useHover(ref)
-
+   /* const ref = useRef()
+    const isBlackHovering = useHover(ref)*/
     return (
         <div>
             {/*<Input/>*/}
-            <Hover/>
-            <div ref={ref} style={{width: 300, height: 300, background: isBlackHovering ? 'blue' : 'black'}}/>
-
+            {/*<Hover/>*/}
+            {/*<div ref={ref} style={{width: 300, height: 300, background: isBlackHovering ? 'blue' : 'black'}}/>*/}
+            <List/>
         </div>
     )
         ;
